@@ -3,28 +3,61 @@
             <meta charset="UTF-8">
             <title>Game</title>
         </head>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        
         <script>
-            var numberX= Math.random() * 100
-            numberX = Math.floor(numberX)
-            var good = 0
-            var bad = 0
-            var end = 12
-            do {
-            prompt("Please enter the correct result of square of number " + numberX)
-            numberA = +prompt
+            var score = 0
+            var ride = 0
+            var answer = [];
             
-            if (prompt = numberX * numberX) {
-                alert("Great!!!")
-                good++;
-                end--;
-            } 
-            else {
-                alert ("Try again")
-                bad++;
-                end--;
+            
+            
+
+            for(var i = 0; i < 3; i++ ) {
+            var number1= Math.random() * 100 - 1
+            number1 = Math.ceil(number1)
+            var number2= Math.random() * 100 - 1
+            number2 = Math.ceil(number2)
+            var number3 = number1 * number2
+            
+            
+            var numberA =+prompt("Укажите результат умножения этих чисел " + number1 +"*"+ number2 +"test"+number3)
+            
+            console.log(number1, number2, number3, numberA)
+            if (numberA == number3) {
+                alert("Верно!!!")
+                ride = ride + 1;
+                score = score + 1;
+                
+                var x = answer.push(["вопрос "+ride,"первый множитель "+number1, "второй множитель " +number2, "верный ответ " +number3, "ваш ответ "+numberA, "верный ответ"]);
+                
+            }  
+            else{
+                alert ("Неверно")
+                ride = ride + 1;
+                
+
+                var x = answer.push(["вопрос "+ride,"первый множитель "+number1, "второй множитель " +number2, "верный ответ " +number3, "ваш ответ "+numberA, "неверный ответ"]);
+                
+                
             }
+            
             }
-            while ( end  > 0)
-            console.log(good, bad, end)
+            
+            
+            
+            
+            var text = "";
+            var j;
+            for (j = 0; j < answer.length; j++) {
+            text += answer[j] + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+            document.getElementById("demo1").innerHTML = "Ваш балл "+score+" из возможных " +ride;
+            console.log(answer)
+            
+           
+
         </script>
     </html>
