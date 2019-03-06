@@ -9,8 +9,10 @@
             var good = 0
             var bad = 0
             var end = 12
+            do {
             prompt("Please enter the correct result of square of number " + numberX)
             numberA = +prompt
+            
             if (prompt = numberX * numberX) {
                 alert("Great!!!")
                 good++;
@@ -21,6 +23,8 @@
                 bad++;
                 end--;
             }
+            }
+            while ( end  > 0)
             console.log(good, bad, end)
         </script>
     </html>
